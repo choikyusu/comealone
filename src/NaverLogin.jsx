@@ -12,8 +12,8 @@ class NaverLogin extends Component {
     // Naver sdk 스크립트 로드 완료시
     naverScript.onload = () => {
       const naverLogin = new window.naver.LoginWithNaverId({
-        clientId: "Naver Client ID",
-        callbackUrl: "로그인 성공이후 URL",
+        clientId: "O5PQk7N5HMqCty9Yeb2V",
+        callbackUrl: "http://localhost:3000",
         callbackHandle: true,
         isPopup: false, // 로그인 팝업여부
         loginButton: {
