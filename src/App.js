@@ -9,6 +9,7 @@ import {
 import Dashboard from './Dashboard/Dashboard';
 import './App.css';
 import Auth from './hoc/Auth';
+import NaverLogin from './NaverLogin';
 
 function App() {
   return (
@@ -18,11 +19,13 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" render={() => <Auth dashboard={Dashboard} name = {'a1111'} />}/>
+          <Route exact path="/" component={Auth(Dashboard)}/>
+          <Route exact path="/login" component={NaverLogin}/>
         </Switch>
       </div>
     </Router>
   );
 }
+
 
 export default App;
