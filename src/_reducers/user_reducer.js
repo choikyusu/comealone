@@ -1,11 +1,18 @@
 import {
     AUTH_USER
 } from '../_actions/types';
+import {createAction} from 'redux-actions';
 
-export default function (state = {}, action) {
+export const authUser = createAction(AUTH_USER);
+
+const initialState = {
+    isLogin : false
+};
+
+export default function reducer (state = initialState, action) {
     switch (action.type) {
         case AUTH_USER:
-            return { ...state, userData: action.payload }
+            return { ...state, userData: action.payload, isLogin : true }
             break;
         default:
             return state;

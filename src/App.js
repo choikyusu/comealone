@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Auth(Dashboard)}/>
+          <Route exact path="/" component={Auth}/>
           <Route exact path="/login" component={NaverLogin}/>
         </Switch>
       </div>

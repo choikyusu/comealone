@@ -1,26 +1,26 @@
 import React, {useEffect} from 'react';
 import NaverLogin from '../NaverLogin';
 import { auth } from '../_actions/user_action';
-import { useDispatch } from 'react-redux';
+
+import {connect} from 'react-redux';
+import Dashboard from '../Dashboard/Dashboard';
 
 
 
 
-export default function (SpecificComponent){
-
-    function AuthenticationCheck(props){
-        const dispatch = useDispatch();
-        useEffect(() => {
-            console.log('a');
-             dispatch(auth(() => {console.log('a')}));
-            
-        }, [])
-
-        return (
-            <SpecificComponent/>
-        )
+function Auth({isLogin, history}){
+    
+    if (!isLogin)
+    {
+        isLogin = true;
+        history.push('/login');
     }
 
-    return AuthenticationCheck;
+    return (<Dashboard/>);
 }
 
+const mapStateToProps = (state) => ({
+    isLogin : state.user.isLogin,
+});
+
+export default connect(mapStateToProps)(Auth);

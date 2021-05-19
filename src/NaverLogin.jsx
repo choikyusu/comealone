@@ -1,7 +1,18 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import { useDispatch } from 'react-redux';
+import * as userActions from './_reducers/user_reducer'
 
 class NaverLogin extends Component {
+
+  handleAuthUser = () => {
+    this.props.authUser();
+  }
+
   componentDidMount() {
+    const { handleAuthUser} = this;
+    
+    
     // Naver sdk import
     const naverScript = document.createElement("script");
     naverScript.src =
@@ -13,7 +24,7 @@ class NaverLogin extends Component {
     naverScript.onload = () => {
       const naverLogin = new window.naver.LoginWithNaverId({
         clientId: "O5PQk7N5HMqCty9Yeb2V",
-        callbackUrl: "http://localhost:3000",
+        callbackUrl: "http://localhost:3000/login",
         callbackHandle: true,
         isPopup: false, // 로그인 팝업여부
         loginButton: {
@@ -28,8 +39,8 @@ class NaverLogin extends Component {
       naverLogin.getLoginStatus((status) => {
         if (status) {
           console.log("Naver 로그인 상태", naverLogin.user);
+          
           const { id, email, gender } = naverLogin.user;
-
           // 필수 제공 동의 조건
           if (gender == undefined) {
             alert("성별은 필수 동의 입니다. 정보제공을 동의해주세요.");
@@ -48,4 +59,9 @@ class NaverLogin extends Component {
   }
 }
 
-export default NaverLogin;
+
+const mapDispatchToProps = (dispatch) => ({
+  authUser : () => dispatch(userActions.authUser()),
+});
+
+export default connect(mapDispatchToProps)(NaverLogin);
