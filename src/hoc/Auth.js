@@ -10,9 +10,7 @@ import Dashboard from '../Dashboard/Dashboard';
 
 function Auth({isLogin, history}){
     
-    if (!isLogin)
-    {
-        isLogin = true;
+    if (!isLogin){
         history.push('/login');
     }
 

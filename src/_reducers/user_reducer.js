@@ -9,12 +9,12 @@ const initialState = {
     isLogin : false
 };
 
-export default function reducer (state = initialState, action) {
+export default function reducer (state = {}, action) {
     switch (action.type) {
         case AUTH_USER:
             return { ...state, userData: action.payload, isLogin : true }
             break;
         default:
-            return state;
+            return {...state, isLogin : true};
     }
 }

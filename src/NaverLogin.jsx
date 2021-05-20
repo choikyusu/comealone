@@ -47,6 +47,11 @@ class NaverLogin extends Component {
             naverLogin.reprompt();
             return;
           }
+
+          this.props.dispatch(
+            userActions.authUser(naverLogin.user)
+            );
+
         } else {
           console.log("Naver 비 로그인 상태");
         }
