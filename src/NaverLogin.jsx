@@ -52,6 +52,8 @@ class NaverLogin extends Component {
             userActions.authUser(naverLogin.user)
             );
 
+          this.props.history.push('/');
+
         } else {
           console.log("Naver 비 로그인 상태");
         }

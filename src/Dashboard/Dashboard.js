@@ -1,14 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
+function Dashboard ({userData}){
 
-class Dashboard extends Component{
-
-    render(){
-    return (<div>
-        <h2>dashboard 안녕하세요</h2>
-    </div>);
-    }
+    return (<div>{userData.nickname}님 반갑습니다.</div>);
 }
 
-export default Dashboard;
+
+
+const mapStateToProps = (state) => ({
+    userData : state.user.userData,
+});
+
+export default connect(mapStateToProps)(Dashboard);
