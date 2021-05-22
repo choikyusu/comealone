@@ -6,6 +6,7 @@
     width: 100%;
     z-index: 99;
     display: block;
+    border-radius: 14.5px;
   }
 
 .img-container{
