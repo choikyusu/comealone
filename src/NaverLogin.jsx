@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import { useDispatch } from 'react-redux';
 import * as userActions from './_reducers/user_reducer'
+import './NaverLogin.css';
 
 class NaverLogin extends Component {
 
@@ -49,7 +50,7 @@ class NaverLogin extends Component {
           }
 
           this.props.dispatch(
-            userActions.authUser(naverLogin.user)
+            userActions.authUser(naverLogin)
             );
 
           this.props.history.push('/');
@@ -62,7 +63,10 @@ class NaverLogin extends Component {
   }
 
   render() {
-    return <div id="naverIdLogin"></div>;
+    return <div>
+        <div className ="headerText">로그인</div>
+        <div className="button" id="naverIdLogin"></div>
+      </div>;
   }
 }
 

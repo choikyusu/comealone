@@ -13,18 +13,19 @@ export const authUser = createAction(AUTH_USER);
 const initialState = {
     isLogin : false,
     number : 0,
-    userData : null
+    userData : {},
+    accessToken : {}
 };
 
 export default function reducer (state = initialState, action) {
     switch (action.type) {
         case AUTH_USER:
-            return { ...state, userData: action.payload, isLogin : true }
+            return { ...state, userData: action.payload.user, accessToken : action.payload.accessToken, isLogin : true }
             break;
         case INCREMENT:
             return {...state, number : state.number + 1, isLogin : true};
         case DECREMENT:
-            return {...state, number : state.number - 1, isLogin : false};
+            return {...state, number : state.number - 1, isLogin : false, userData : {}, accessToken : {}};
         default:
             return state;
     }
