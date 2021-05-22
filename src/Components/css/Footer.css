@@ -1,0 +1,21 @@
+.footer {
+    text-align: center;
+    background-color: rgb(66, 65, 67);
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 99;
+    display: block;
+  }
+
+.img-container{
+  
+}
+
+
+.images-container{
+  margin-right: auto;
+  margin-left: auto;
+  display:flex;
+  width: 500px;
+}

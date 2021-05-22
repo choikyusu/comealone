@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import { useDispatch } from 'react-redux';
-import * as userActions from './_reducers/user_reducer'
+import * as userActions from '../../_reducers/user_reducer'
 import './NaverLogin.css';
 
 class NaverLogin extends Component {

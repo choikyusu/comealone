@@ -1,11 +1,7 @@
-import React, {useEffect} from 'react';
-import NaverLogin from '../NaverLogin';
-import { auth } from '../_actions/user_action';
+import React from 'react';
 
 import {connect} from 'react-redux';
-import Dashboard from '../Dashboard/Dashboard';
-
-
+import Main from '../Components/Main';
 
 
 function Auth({isLogin, history}){
@@ -14,7 +10,7 @@ function Auth({isLogin, history}){
         history.push('/login');
     }
 
-    return (<Dashboard/>);
+    return (<Main/>);
 }
 
 const mapStateToProps = (state) => ({

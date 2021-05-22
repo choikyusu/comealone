@@ -6,10 +6,9 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import Dashboard from './Dashboard/Dashboard';
 import './App.css';
 import Auth from './hoc/Auth';
-import NaverLogin from './NaverLogin';
+import NaverLogin from './Login/NaverLogin/NaverLogin';
 import CounterContainer from './CounterContainer'
 
 function App() {
