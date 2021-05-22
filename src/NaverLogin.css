@@ -1,0 +1,16 @@
+.button {
+    margin: 10px;
+    margin-top: 100px;
+    text-align: center;
+  }
+.headerText {
+    margin: 10px;
+    color: rgb(160, 31, 221);
+    font-size: 1.7em;
+    font-weight:900;
+    height: 3em;
+    line-height: 3em;
+    display: block;
+    text-align: center;
+    background-color: rgb(244,236,245);
+}
