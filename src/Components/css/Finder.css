@@ -13,9 +13,18 @@
   background-color: white
 }
 
+.filter-wrapper{
+  height: 40px;
+  margin-left: 30px;
+}
+
+.filter{
+  margin-top: 5px;
+  height: 25px;
+}
+
 .search-box-wrapper{
   float: left;
-  margin-top: 30px;
   margin-left: 30px;
   padding: 0 11px;
   width: 270px;

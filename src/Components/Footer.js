@@ -5,33 +5,53 @@ import styles from './css/Footer.css'
 
 function Footer ({userData, accessToken}){
 
+    function handleWriteClick(e){
+        alert("글쓰기");
+    }
+
+    function handleMapClick(e){
+        alert("지도");
+    }
+
+    function handleListClick(e){
+        alert("리스트");
+    }
+
+    function handleFavoriteClick(e){
+        alert("즐겨찾기");
+    }
+
+    function handlePreferenceClick(e){
+        alert("환경설정");
+    }
+
     return (
     <div className="footer">
         <div className = "images-container">
             <div className="img-container">
-                <img className ="img" src={require("./write.png").default}/>
+                <img className ="img" src={require("./write.png").default} onClick={handleWriteClick} />
                 <br/>
-                Write
+                글쓰기
             </div>
             <div className="img-container">
-                <img className ="img" src={require("./write.png").default}/>
+                <img className ="img" src={require("./write.png").default } onClick={handleMapClick} />
                 <br/>
-                Write
+                지도
             </div>
             <div className="img-container">
-                <img className ="img" src={require("./write.png").default}/>
+                <img className ="img" src={require("./write.png").default} onClick={handleListClick} />
                 <br/>
-                Write
+                리스트
             </div>
             <div className="img-container">
-                <img className ="img" src={require("./write.png").default}/>
+                <img className ="img" src={require("./write.png").default} onClick={handleFavoriteClick} />
                 <br/>
-                Write
+                즐겨찾기
             </div>
             <div className="img-container">
-                <img className ="img" src={require("./write.png").default}/>
+                <img className ="img" src={require("./write.png").default} onClick={handlePreferenceClick} />
                 <br/>
-                Write
+                설정
             </div>
         </div>
     </div>);

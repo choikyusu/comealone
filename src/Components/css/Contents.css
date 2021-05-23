@@ -1,0 +1,10 @@
+.home-wrapper{
+  padding-top: 75px;
+  padding-bottom: 90px;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.body-container{
+  height : 100%;
+}
