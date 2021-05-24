@@ -1,10 +1,23 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import styles from './css/Finder.css'
+import Modal from './Modals/Filter';
 
 function Finder ({userData, accessToken}){
     
+    const [modalOpen, setModalOpen] = useState(false);
+
+    const openModal=()=>{
+        setModalOpen(true);
+    }
+
+    const closeModal=()=>{
+        setModalOpen(false);
+    }
+
+
+
     function handleFilterClick(e){
-        alert('필터팝업 노출');
+        setModalOpen(true);
     }
     
     return (
@@ -25,6 +38,9 @@ function Finder ({userData, accessToken}){
             </div>
 
         </div>
+        <Modal open={ modalOpen } close={ closeModal } header="필터">
+            
+        </Modal>
     </div>);
 }
 
