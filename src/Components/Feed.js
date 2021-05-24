@@ -1,8 +1,10 @@
 import React, {useState, useEffect  } from 'react';
 import styles from './css/Feed.css';
+import imgPath from "../assets/images/template.jpg";
 
 function Feed({feed}){
     const {title, writer, imagePath} = feed;
+
 
     
     function handleContentsClick(e){
@@ -11,7 +13,7 @@ function Feed({feed}){
 
     return (<div className="feed-container">
         <div className="p-feed" onClick={handleContentsClick}>
-            <img className="image-contents" src={require(`../assets/images/template.jpg`).default}/>
+            <img className="image-contents" src={imagePath}/>
             <div className="contents-text-container">
                 <div className="contents-text-title">
                         {title}
