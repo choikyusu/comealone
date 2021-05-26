@@ -5,9 +5,28 @@ const Modal = ( props ) => {
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
 
     const [eat, setEat] = useState(false);
+    const [enjoy, setEnjoy] = useState(false);
+    const [favorite, setFavorite] = useState(false);
+    const [write, setWrite] = useState(false);
+    const [watch, setWatch] = useState(false);
     
     const clickEat = () =>{
         setEat(!eat);
+    }
+
+    const clickEnjoy = () =>{
+        setEnjoy(!enjoy);
+    }
+
+    const clickFavorite = () =>{
+        setFavorite(!favorite);
+    }
+    
+    const clickWrite = () =>{
+        setWrite(!write);
+    }
+    const clickWatch = () =>{
+        setWatch(!watch);
     }
 
     const { open, close, header } = props;
@@ -22,23 +41,23 @@ const Modal = ( props ) => {
                                 <div class="tit">먹을거리</div> 
                             </a> 
                         </button>
-                        <button class="item"> 
-                            <a class="keyword"> 
+                        <button class="item" onClick={clickEnjoy}> 
+                            <a class={"keyword" + (enjoy ? " selected" : " ")}> 
                                 <div class="tit">할거리</div> 
                             </a> 
                         </button>
-                        <button class="item"> 
-                            <a class="keyword"> 
+                        <button class="item" onClick={clickFavorite}> 
+                            <a class={"keyword" + (favorite ? " selected" : " ")}> 
                                 <div class="tit">찜한거</div> 
                             </a> 
                         </button>
-                        <button class="item"> 
-                            <a class="keyword"> 
+                        <button class="item" onClick={clickWrite}> 
+                            <a class={"keyword" + (write ? " selected" : " ")}> 
                                 <div class="tit">내가쓴</div> 
                             </a> 
                         </button>
-                        <button class="item"> 
-                            <a class="keyword"> 
+                        <button class="item" onClick={clickWatch}> 
+                            <a class={"keyword" + (watch ? " selected" : " ")}> 
                                 <div class="tit">볼거리</div> 
                             </a> 
                         </button>
