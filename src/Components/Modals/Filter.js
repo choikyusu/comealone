@@ -1,10 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import "./css/Filter.css";
+import {connect} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import * as filterActions from '../../_reducers/filter_reducer'
 
 const Modal = ( props ) => {
-    // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
+    const dispatch = useDispatch();
 
-    const [eat, setEat] = useState(false);
+    // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
+    const { open, close, apply, header, eat1} = props;
+    const [eat, setEat] = useState(eat1);
     const [enjoy, setEnjoy] = useState(false);
     const [favorite, setFavorite] = useState(false);
     const [write, setWrite] = useState(false);
@@ -29,7 +34,17 @@ const Modal = ( props ) => {
         setWatch(!watch);
     }
 
-    const { open, close, header } = props;
+    const filterContents = (items) => {
+        dispatch(
+            filterActions.filterContents(items)
+        );
+    }
+
+    const clickApply = () =>{
+        filterContents({eat:eat, enjoy:enjoy, favorite: favorite, write : write, watch : watch});
+        apply();
+    }
+
     return (
         // 모달이 열릴때 openModal 클래스가 생성된다.
         <div className={ open ? 'openModal modal' : 'modal' }>
@@ -64,7 +79,7 @@ const Modal = ( props ) => {
                     </main>
                     <footer>
                         <button className="close" onClick={close}> 취소 </button>
-                        <button className="close" onClick={close}> 적용 </button>
+                        <button className="close" onClick={clickApply}> 적용 </button>
                     </footer>
                 </section>
             ) : null }
@@ -72,4 +87,14 @@ const Modal = ( props ) => {
     )
 }
 
-export default Modal;
+const mapDispatchToProps = (dispatch) => ({
+    filterContents : (items) => dispatch(filterActions.filterContents(items)),
+  });
+
+  const mapStateToProps = (state) => ({
+    eat1 : state.filter.filter.eat,
+    enjoy1 : state.filter.filter.enjoy
+
+});
+  
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

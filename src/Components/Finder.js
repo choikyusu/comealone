@@ -1,8 +1,12 @@
 import React, {Component, useState} from 'react';
 import styles from './css/Finder.css'
 import Modal from './Modals/Filter';
+import {connect} from 'react-redux';
+import * as filterActions from '../_reducers/filter_reducer'
 
-function Finder ({userData, accessToken}){
+
+
+function Finder ({userData, accessToken, eat1, enjoy1}){
     
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -14,7 +18,11 @@ function Finder ({userData, accessToken}){
         setModalOpen(false);
     }
 
-
+    const applyModal=()=>{
+        alert(eat1);
+        setModalOpen(false);
+        
+    }
 
     function handleFilterClick(e){
         setModalOpen(true);
@@ -38,13 +46,17 @@ function Finder ({userData, accessToken}){
             </div>
 
         </div>
-        <Modal open={ modalOpen } close={ closeModal } header="필터">
+        <Modal open={ modalOpen } close={ closeModal } apply={ applyModal } header="필터">
             
         </Modal>
     </div>);
 }
 
+const mapStateToProps = (state) => ({
+    eat1 : state.filter.filter.eat,
+    enjoy1 : state.filter.filter.enjoy
+
+});
 
 
-
-export default Finder;
+export default connect(mapStateToProps)(Finder);
