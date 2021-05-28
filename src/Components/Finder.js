@@ -19,7 +19,6 @@ function Finder ({userData, accessToken, eat1, enjoy1}){
     }
 
     const applyModal=()=>{
-        alert(eat1);
         setModalOpen(false);
         
     }

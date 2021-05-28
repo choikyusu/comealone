@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, {useState, useReducer, useEffect} from 'react';
 import "./css/Filter.css";
 import {connect} from 'react-redux';
 import {useDispatch} from 'react-redux';
@@ -8,13 +8,15 @@ const Modal = ( props ) => {
     const dispatch = useDispatch();
 
     // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
-    const { open, close, apply, header, eat1} = props;
-    const [eat, setEat] = useState(eat1);
+    const { open, close, apply, filterEat, filterEnjoy, filterFavorite, filterWrite, filterWatch} = props;
+
+    
+    const [eat, setEat] = useState(false);
     const [enjoy, setEnjoy] = useState(false);
     const [favorite, setFavorite] = useState(false);
     const [write, setWrite] = useState(false);
     const [watch, setWatch] = useState(false);
-    
+
     const clickEat = () =>{
         setEat(!eat);
     }
@@ -40,9 +42,26 @@ const Modal = ( props ) => {
         );
     }
 
+    useEffect(() =>{
+        //적용후 변경된것이 있을때
+        apply();
+
+    },[filterEat, filterEnjoy, filterFavorite, filterWrite, filterWatch]);
+
     const clickApply = () =>{
         filterContents({eat:eat, enjoy:enjoy, favorite: favorite, write : write, watch : watch});
-        apply();
+        
+        //젹용버튼 클릭후 변경된것이 없을때
+        close();
+    }
+
+    const clickClose = () =>{
+        setEat(filterEat); 
+        setEnjoy(filterEnjoy); 
+        setFavorite(filterFavorite);
+        setWrite(filterWrite);
+        setWatch(filterWatch);
+        close();
     }
 
     return (
@@ -78,7 +97,7 @@ const Modal = ( props ) => {
                         </button>
                     </main>
                     <footer>
-                        <button className="close" onClick={close}> 취소 </button>
+                        <button className="close" onClick={clickClose}> 취소 </button>
                         <button className="close" onClick={clickApply}> 적용 </button>
                     </footer>
                 </section>
@@ -92,8 +111,11 @@ const mapDispatchToProps = (dispatch) => ({
   });
 
   const mapStateToProps = (state) => ({
-    eat1 : state.filter.filter.eat,
-    enjoy1 : state.filter.filter.enjoy
+    filterEat : state.filter.filter.eat,
+    filterEnjoy : state.filter.filter.enjoy,
+    filterFavorite : state.filter.filter.favorite,
+    filterWrite : state.filter.filter.write,
+    filterWatch : state.filter.filter.watch,
 
 });
   
