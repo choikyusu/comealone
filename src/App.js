@@ -10,6 +10,7 @@ import './App.css';
 import Auth from './hoc/Auth';
 import NaverLogin from './Login/NaverLogin/NaverLogin';
 import CounterContainer from './CounterContainer'
+import PreferenceContainer from './Components/PreferenceContainer'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/" component={Auth}/>
           <Route exact path="/login" component={NaverLogin}/>
           <Route exact path="/counter" component={CounterContainer}/> 
+          <Route exact path="/preference" component={PreferenceContainer}/> 
         </Switch>
       </div>
     </Router>
