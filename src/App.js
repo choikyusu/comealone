@@ -11,6 +11,8 @@ import Auth from './hoc/Auth';
 import NaverLogin from './Login/NaverLogin/NaverLogin';
 import CounterContainer from './CounterContainer'
 import PreferenceContainer from './Components/PreferenceContainer'
+import Main from './Components/Main';
+import PrivateRoute from "./Components/common/PrivateRoute";
 
 function App() {
   return (
@@ -20,10 +22,11 @@ function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Auth}/>
+          <PrivateRoute exact path="/" component={Main}/>
           <Route exact path="/login" component={NaverLogin}/>
           <Route exact path="/counter" component={CounterContainer}/> 
-          <Route exact path="/preference" component={PreferenceContainer}/> 
+          <PrivateRoute exact path="/preference" component={PreferenceContainer}/> 
+          <PrivateRoute exact path="/list" component={Main}/> 
         </Switch>
       </div>
     </Router>

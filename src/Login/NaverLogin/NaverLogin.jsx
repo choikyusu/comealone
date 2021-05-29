@@ -6,15 +6,8 @@ import './NaverLogin.css';
 
 class NaverLogin extends Component {
 
-  handleAuthUser = () => {
-    this.props.authUser();
-  }
-
   componentDidMount() {
-    const { handleAuthUser} = this;
-    
-    
-    // Naver sdk import
+   // Naver sdk import
     const naverScript = document.createElement("script");
     naverScript.src =
       "https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js";
@@ -53,7 +46,7 @@ class NaverLogin extends Component {
             userActions.authUser(naverLogin)
             );
 
-          this.props.history.push('/');
+          this.props.history.push('/list');
 
         } else {
           console.log("Naver 비 로그인 상태");
