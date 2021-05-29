@@ -70,29 +70,29 @@ const Modal = ( props ) => {
             { open ? (  
                 <section>
                     <main>
-                        <button class="item" onClick={clickEat}> 
+                        <button className="item" onClick={clickEat}> 
                             <a className={"keyword" + (eat ? " selected" : " ")} > 
                                 <div class="tit">먹을거리</div> 
                             </a> 
                         </button>
-                        <button class="item" onClick={clickEnjoy}> 
-                            <a class={"keyword" + (enjoy ? " selected" : " ")}> 
-                                <div class="tit">할거리</div> 
+                        <button className="item" onClick={clickEnjoy}> 
+                            <a className={"keyword" + (enjoy ? " selected" : " ")}> 
+                                <div className="tit">할거리</div> 
                             </a> 
                         </button>
-                        <button class="item" onClick={clickFavorite}> 
-                            <a class={"keyword" + (favorite ? " selected" : " ")}> 
-                                <div class="tit">찜한거</div> 
+                        <button className="item" onClick={clickFavorite}> 
+                            <a className={"keyword" + (favorite ? " selected" : " ")}> 
+                                <div className="tit">찜한거</div> 
                             </a> 
                         </button>
-                        <button class="item" onClick={clickWrite}> 
-                            <a class={"keyword" + (write ? " selected" : " ")}> 
-                                <div class="tit">내가쓴</div> 
+                        <button className="item" onClick={clickWrite}> 
+                            <a className={"keyword" + (write ? " selected" : " ")}> 
+                                <div className="tit">내가쓴</div> 
                             </a> 
                         </button>
-                        <button class="item" onClick={clickWatch}> 
-                            <a class={"keyword" + (watch ? " selected" : " ")}> 
-                                <div class="tit">볼거리</div> 
+                        <button className="item" onClick={clickWatch}> 
+                            <a className={"keyword" + (watch ? " selected" : " ")}> 
+                                <div className="tit">볼거리</div> 
                             </a> 
                         </button>
                     </main>
@@ -108,15 +108,14 @@ const Modal = ( props ) => {
 
 const mapDispatchToProps = (dispatch) => ({
     filterContents : (items) => dispatch(filterActions.filterContents(items)),
-  });
+});
 
-  const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     filterEat : state.filter.filter.eat,
     filterEnjoy : state.filter.filter.enjoy,
     filterFavorite : state.filter.filter.favorite,
     filterWrite : state.filter.filter.write,
     filterWatch : state.filter.filter.watch,
-
 });
   
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

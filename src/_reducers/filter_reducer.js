@@ -7,7 +7,7 @@ import {createAction} from 'redux-actions';
 export const filterContents = createAction(FILTER_CONTENTS);
 
 const initialState = {
-    filter : {}
+    filter : {eat : false, enjoy : false, write : false, watch : false, favorite:false}
     
 };
 
