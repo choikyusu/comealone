@@ -13,6 +13,7 @@ import CounterContainer from './CounterContainer'
 import PreferenceContainer from './Components/PreferenceContainer'
 import Main from './Components/Main';
 import PrivateRoute from "./Components/common/PrivateRoute";
+import MapContainer from './Components/MapContainer';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/counter" component={CounterContainer}/> 
           <PrivateRoute exact path="/preference" component={PreferenceContainer}/> 
           <PrivateRoute exact path="/list" component={Main}/> 
+          <PrivateRoute exact path="/map" component={MapContainer}/> 
         </Switch>
       </div>
     </Router>
