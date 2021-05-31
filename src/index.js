@@ -13,6 +13,9 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
+window.$ = window.jQuery = require("jquery");
+require("bootstrap");
+
 const persistConfig = {
   key: 'root',
   storage

@@ -14,6 +14,7 @@ import PreferenceContainer from './Components/PreferenceContainer'
 import Main from './Components/Main';
 import PrivateRoute from "./Components/common/PrivateRoute";
 import MapContainer from './Components/MapContainer';
+import WriteContainer from './Components/WriteContainer';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <PrivateRoute exact path="/preference" component={PreferenceContainer}/> 
           <PrivateRoute exact path="/list" component={Main}/> 
           <PrivateRoute exact path="/map" component={MapContainer}/> 
+          <PrivateRoute exact path="/write" component={WriteContainer}/> 
         </Switch>
       </div>
     </Router>
