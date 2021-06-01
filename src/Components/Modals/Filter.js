@@ -51,7 +51,7 @@ const Modal = ( props ) => {
     const clickApply = () =>{
         filterContents({eat:eat, enjoy:enjoy, favorite: favorite, write : write, watch : watch});
         
-        //젹용버튼 클릭후 변경된것이 없을때1
+        //젹용버튼 클릭후 변경된것이 없을때11
         close();
     }
 
